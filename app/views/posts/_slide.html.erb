@@ -1,0 +1,33 @@
+<div class="slides">
+             <% @slides.each do |post| %>
+                 <article class="big clearfix">
+                 <%= image_tag post.image.slide %>
+                 <div class="info">
+                   <p class="tags">
+                     <%= raw post.tag_list.map{|t| link_to t, root_path(t)}.join(' ') %>
+                   </p>
+                   <h1><%= link_to post.title, post_path(post) %></h1>
+                   <p class="text">
+                     <%= truncate( raw( sanitize(post.description, :tags => %w(table tr td), :attributes => %w(id class style) ) ), :length => 110, :omission => "...") %>
+                   </p>
+                   <p class="details">    
+                         <% if post.created_at > Time.now.beginning_of_day %>
+                             <%="#{time_ago_in_words(post.created_at)} ago"%> 
+                          <% else %> 
+                             <%= post.created_at.strftime("%b %d, %Y") %>
+                          <% end %> | <a href="author.html">Alex Grosville</a></p>
+                 </div>
+                 <ul class="counters list-inline">
+                   <li>
+                     <a href=""><i class="fa fa-eye"></i>1241</a>
+                   </li>
+                   <li>
+                     <a href=""><i class="fa fa-comment"></i>25</a>
+                   </li>
+                   <li>
+                     <a href=""><i class="fa fa-heart"></i>724</a>
+                   </li>
+                 </ul>
+                 </article>
+             <% end %>
+           </div>

@@ -1,0 +1,175 @@
+<!--MAIN SECTION-->
+  <div class="main">
+    <div class="row">
+      <!--CONTENT-->
+      <div class="posts col-md-9 col-sm-12">
+        <!--BREAKING NEWS-->
+        <div class="row">
+          <div class="breaking col-md-12 col-sm-12">
+            <div class="controls">
+              <p class="prev"><i class="fa fa-angle-left"></i></p>
+              <p class="next"><i class="fa fa-angle-right"></i></p>
+            </div>
+            <ul class="news">
+            <% @reports.each do |post| %>
+              <li>
+                <span>HOT! </span>
+               <%= link_to post.title, post_path(post) %>
+              </li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
+        <!--END BREAKING NEWS-->
+        <div class="row" style="margin-bottom:0px;">
+          <div class="post-slider col-md-8 col-sm-8">
+            <div class="controls">
+              <p class="prev"><i class="fa fa-angle-left"></i></p>
+              <p class="next"><i class="fa fa-angle-right"></i></p>
+            </div>
+            <%= render 'slide' %>
+          </div>
+          <%= render 'top' %>
+        </div>
+        <div class="row" >
+          <%= render 'small' %>
+          <%= render 'default' %>
+        </div>
+        <%= render 'bottom' %>
+      </div>
+      <!--END CONTENT-->
+
+      <!--SIDEBAR-->
+     <!--  <aside class="col-md-3 col-sm-12">
+
+        <ul class="aside-social list-inline visible-md visible-lg">
+          <li>
+            <i class="fa fa-facebook"></i>
+            <p>162K</p>
+          </li>
+          <li>
+            <i class="fa fa-twitter"></i>
+            <p>73K</p>
+          </li>
+          <li>
+            <i class="fa fa-google-plus"></i>
+            <p>29K</p>
+          </li>
+          <li>
+            <i class="fa fa-rss"></i>
+            <p>9,012</p>
+          </li>
+        </ul>
+
+        <div class="newsletter visible-md visible-lg">
+          <h3>Newsletter</h3>
+          <p>Subscribe to be the first to know our about sales, events and special offers!</p>
+          <form action="POST">
+            <input type="email" class="form-control" placeholder="Enter your email">
+            <input type="submit" value="subscribe" class="btn btn-default btn-block">
+          </form>
+        </div>
+
+        <div class="banner visible-md visible-lg">
+          <img src="assets/banner.png" alt="banner">
+        </div>
+
+        <div class="hidden-xs hidden-sm hidden-md hidden-lg"></div>
+
+        <div class="most-discussed col-md-12 col-sm-6">
+          <h4>Most discussed posts</h4>
+          <article class="small clearfix">
+            <img src="assets/posts/small/small_6.jpg" alt="most1">
+            <div class="info">
+              <p class="tags">
+                <a href="">Science</a>
+                <a href="">lifestyle</a>
+              </p>
+              <h1><a href="">Trend Colours 2014</a></h1>
+              <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </p>
+
+            </div>
+            <ul class="counters list-inline">
+              <li>
+                <a href=""><i class="fa fa-eye"></i>
+                <%##= post.impressionist_count(:filter=>:ip_address)%>
+                </a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-comment"></i>25</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-heart"></i>724</a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="small clearfix">
+            <img src="assets/posts/small/small_31.jpg" alt="most2">
+            <div class="info">
+              <p class="tags">
+                <a href="">Science</a>
+                <a href="">lifestyle</a>
+              </p>
+              <h1><a href="">Couple Problems</a></h1>
+              <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </p>
+
+            </div>
+            <ul class="counters list-inline">
+              <li>
+                <a href=""><i class="fa fa-eye"></i>
+                <%##= post.impressionist_count(:filter=>:ip_address)%></a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-comment"></i>25</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-heart"></i>724</a>
+              </li>
+            </ul>
+          </article>
+
+          <article class="small clearfix">
+            <img src="assets/posts/small/small_22.jpg" alt="most3">
+            <div class="info">
+              <p class="tags">
+                <a href="">Science</a>
+                <a href="">lifestyle</a>
+              </p>
+              <h1><a href="">Mismo Backpaks</a></h1>
+              <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </p>
+
+            </div>
+            <ul class="counters list-inline">
+              <li>
+                <a href=""><i class="fa fa-eye"></i>
+                <%##= post.impressionist_count(:filter=>:ip_address)%></a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-comment"></i>25</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-heart"></i>724</a>
+              </li>
+            </ul>
+          </article>
+          <a href="#" class="btn btn-default">View all</a>
+        </div>
+
+        <div class="flickr col-md-12 col-sm-6">
+          <h4>Flickr photostream</h4>
+        </div>
+      </aside> -->
+      <!--END SIDEBAR-->
+    </div>
+  </div>
+<!-- Localized -->
