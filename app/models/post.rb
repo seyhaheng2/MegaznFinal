@@ -2,14 +2,16 @@ class Post < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 
-  # include Impressionist::IsImpressionable
-  # is_impressionable
+  include Impressionist::IsImpressionable
+  is_impressionable
+
+  extend FriendlyId
+  friendly_id :title, use: [:slugged, :history, :finders]
 
   acts_as_votable
 
   acts_as_taggable
   
-  extend FriendlyId
 
 
 
@@ -17,13 +19,11 @@ class Post < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  # acts_as_punchable
 
   def format_post_enum
     ['slide','top', 'default', 'big', 'small', 'bottom']
   end
 
-  friendly_id :title, use: [:slugged, :history, :finders]
 
 
   def should_generate_new_friendly_id?

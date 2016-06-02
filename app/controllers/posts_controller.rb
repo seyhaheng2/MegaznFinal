@@ -1,25 +1,36 @@
 class PostsController < ApplicationController
   # impressionist actions: [:show, :index], unique: [:session_hash]
-
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :downvote, :upvote]
+  impressionist actions: [:show]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
   # GET /posts.json
   def index
     # @posts = Post.order(created_at: :desc)
     @smalls = Post.of_small.order(created_at: :DESC).paginate(:page => params[:page], :per_page => 15)
-    @defaults = Post.of_default.order(created_at: :DESC).paginate(:page => params[:page], :per_page => 12)
     @covers = Post.of_cover.order(created_at: :DESC)
     @slides = Post.of_slide.order(created_at: :DESC).limit(5)
     @tops = Post.of_top.order(created_at: :DESC).limit(1)
     @reports = Post.order(created_at: :DESC)
     @bots = Post.of_bottom.order(created_at: :DESC).limit(1)
     @bigs = Post.of_big.order(created_at: :DESC).limit(1)
+    @defaults = Post.of_default.paginate(page: params[:page], :per_page => 15)
+    if request.xhr?
+      render :partial=>"default"
+    end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    
+    if request.path != post_path(@post)
+      return redirect_to @post, :status => :moved_permanently
+    end
+    @meta_title = @post.title
+    @meta_description = @post.description
+
+
   end
 
   # GET /posts/new
@@ -72,24 +83,21 @@ class PostsController < ApplicationController
   end
 
 
-  def upvote
-    @post.upvote_from current_user
-    redirect_to root_path
-  end
+  # def upvote
+  #   @post.upvote_from current_user
+  #   redirect_to root_path
+  # end
 
-  def downvote
-    @post.down vote_from current_user
-    redirect_to root_path
-  end
+  # def downvote
+  #   @post.down vote_from current_user
+  #   redirect_to root_path
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
-      # impressionist(@post, "message...") # 2nd argument is optional
-
-      # impressionist(@post, "some message", :unique => [:session_hash])
-
+      @post = Post.friendly.find(params[:id])
+      impressionist(@post)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

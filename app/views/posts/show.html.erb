@@ -1,61 +1,972 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-9 col-sm-12 clearfix">
+     
+    <article class="post mid fullwidth">
+           <%= image_tag (@post.image), style: 'height: 100%; width: 100%; object-fit: contain' %>
+          <div class="info">
+            <h1 style="line-height: 1.4;"><%= @post.title %></h1>
+            <div class="data">
+              <p class="details" 
+                     <% if @post.created_at > Time.now.beginning_of_day %>
+                        <%="#{time_ago_in_words(@post.created_at)} ago"%> 
+                     <% else %> 
+                        <%= @post.created_at.strftime("%b %d, %Y") %>
+                     <% end %> 
+                     | <a href="author.html">Alex Grosville</a></p>
+              <ul class="counters list-inline">
+                <li>
+                  <a href=""><i class="fa fa-eye"></i>
+                    <%= @post.impressionist_count(:filter=>:ip_address) %>
+                  </a>
+                </li>
+                <li>
+                  <a href=""><i class="fa fa-comment"></i>25</a>
+                </li>
+                <li>
+                  <a href=""><i class="fa fa-heart"></i>724</a>
+                </li>
+              </ul>
+            </div>
+            <div class="text">
+             <%= @post.description.html_safe %>
+            </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+            <div class="post-nav">
+              <a href="">
+                <h6>Prev post</h6>
+                <p>From lettering to calligraphy</p>
+              </a><a href="">
+                <h6>Next post</h6>
+                <p>From lettering to calligraphy</p>
+              </a>
+            </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
+            <p class="tags">
+              <a href="">Fashion</a>
+              <a href="">Inspiration</a>
+              <a href="">lifestyle</a>
+            </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+     
+          </div>
+    </article>
+        <!--END POST-->
 
-<p>
-  <strong>Format post:</strong>
-  <%= @post.format_post %>
-</p>
-
-<p>
-  <strong>Hide post:</strong>
-  <%= @post.hide_post %>
-</p>
-
-<p>
-  <strong>Ads:</strong>
-  <%= @post.ads %>
-</p>
-
-<p>
-  <strong>Excerpt:</strong>
-  <%= @post.excerpt %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @post.category %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<p>
-  <strong>Meta title:</strong>
-  <%= @post.meta_title %>
-</p>
-
-<p>
-  <strong>Meta description:</strong>
-  <%= @post.meta_description %>
-</p>
-
-
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+        <h3>Related Content that you sould not miss</h3>    
+        <div class="row">
+          <article class="col-md-4 col-sm-4 mid">
+            <div class="img">
+              <img src="img/posts/mid/mid_46.jpg" alt="post4">
+              <div class="overlay"></div>
+            </div>
+            <div class="info">
+              <p class="tags">
+                <a href="">Fashion</a>
+                <a href="">Inspiration</a>
+                <a href="">lifestyle</a>
+              </p>
+              <h1><a href="">Unreal Nature</a></h1>
+              <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </p>
+              
+            </div>
+            <ul class="counters list-inline">
+              <li>
+                <a href=""><i class="fa fa-eye"></i>15271</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-comment"></i>25</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-heart"></i>724</a>
+              </li>
+            </ul>
+          </article>
+          <article class="col-md-4 col-sm-4 mid">
+            <div class="img">
+              <img src="img/posts/mid/mid_17.jpg" alt="post5">
+              <div class="overlay"></div>
+            </div>
+            <div class="info">
+              <p class="tags">
+                <a href="">Science</a>
+                <a href="">lifestyle</a>
+              </p>
+              <h1><a href="">Real Breakfast</a></h1>
+              <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </p>
+              
+            </div>
+            <ul class="counters list-inline">
+              <li>
+                <a href=""><i class="fa fa-eye"></i>15271</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-comment"></i>25</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-heart"></i>724</a>
+              </li>
+            </ul>
+          </article>
+          <article class="col-md-4 col-sm-4 mid">
+            <div class="img">
+              <img src="img/posts/mid/mid_20.jpg" alt="post12">
+              <div class="overlay"></div>
+            </div>
+            <div class="info">
+              <p class="tags">
+                <a href="">Science</a>
+                <a href="">lifestyle</a>
+              </p>
+              <h1><a href="">Moto X Drop Test</a></h1>
+              <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+              <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+              </p>
+              
+            </div>
+            <ul class="counters list-inline">
+              <li>
+                <a href=""><i class="fa fa-eye"></i>15271</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-comment"></i>25</a>
+              </li>
+              <li>
+                <a href=""><i class="fa fa-heart"></i>724</a>
+              </li>
+            </ul>
+          </article>
+        </div>
+        <!--TABS-->
+        <div class="row">
+          <div class="col-md-12 col-sm-12">
+                  <ul id="Tabs" class="nav nav-tabs">
+                      <li class="active"><a href="#fasion" data-toggle="tab">Fashion</a></li>
+                      <li><a href="#science" data-toggle="tab">Science</a></li>
+                      <li><a href="#lifestyle" data-toggle="tab">Lifestyle</a></li>
+                      <li><a href="#music" data-toggle="tab">Music</a></li>
+                      <li><a href="#movies" data-toggle="tab">Movies & stars</a></li>
+                  </ul>
+                  <div id="TabContent" class="tab-content">
+                      <div class="tab-pane fade active in" id="fasion">
+                        <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_11.jpg" alt="post6">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Miami Women Fashion</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_26.jpg" alt="post7">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">UK Fashion Week</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_12.jpg" alt="post8">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Hipster Stuff</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>
+                <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_13.jpg" alt="post9">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Designer Stuff</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_53.jpg" alt="post10">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Columbia New Protection System</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_54.jpg" alt="post11">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">The Best Online Stores</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>  
+                      </div>
+                      <div class="tab-pane fade" id="science">
+                        <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_3.jpg" alt="post6">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">The Predictive Power of Big Data</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_18.jpg" alt="post7">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Fishing Nowadays</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_20.jpg" alt="post8">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Moto X Drop Test</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>
+                <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_23.jpg" alt="post9">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Neo Science</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_40.jpg" alt="post10">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Iceland</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_46.jpg" alt="post11">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Unreal Nature</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>  
+                      </div>
+                      <div class="tab-pane fade" id="lifestyle">
+                        <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_10.jpg" alt="post6">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Miami Men Fashion</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_11.jpg" alt="post7">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Miami Women Fashion</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_31.jpg" alt="post8">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Couple Problems</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>
+                <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_43.jpg" alt="post9">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Bicycle Protection</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_55.jpg" alt="post10">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Garden Secrets 2</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_27.jpg" alt="post11">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Lomography</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>  
+                      </div>
+                      <div class="tab-pane fade" id="music">
+                        <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_32.jpg" alt="post6">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Guitar Garage Band</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_33.jpg" alt="post7">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">iPhone 5s Review</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_40.jpg" alt="post8">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">History Dont Sleep</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>
+                <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_47.jpg" alt="post9">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Rain Rain Rain</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_3.jpg" alt="post10">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">The Predictive Power of Big Data</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_20.jpg" alt="post11">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href=""> lifestyle</a>
+                      </p>
+                      <h1>Moto X Drop Test</h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>  
+                      </div>
+                      <div class="tab-pane fade" id="movies">
+                        <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_36.jpg" alt="post6">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Ukraine Revolution</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_46.jpg" alt="post7">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Unreal Nature</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_10.jpg" alt="post8">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Miami Men Fashion</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>
+                <div class="row">
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_19.jpg" alt="post9">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">The Best Tourists Places 2014</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_18.jpg" alt="post10">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Fishing Nowadays</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                  <article class="col-md-4 col-sm-4 small">
+                    <img src="img/posts/small/small_25.jpg" alt="post11">
+                    <div class="info">
+                      <p class="tags">
+                        <a href="">Science</a>
+                        <a href="">lifestyle</a>
+                      </p>
+                      <h1><a href="">Street Journey</a></h1>
+                      <p class="details">Sep 25, 2013 | <a href="author.html">Alex Grosville</a></p>
+                      <p class="text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                      </p>
+                      
+                    </div>
+                    <ul class="counters list-inline">
+                      <li>
+                        <a href=""><i class="fa fa-eye"></i>15271</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-comment"></i>25</a>
+                      </li>
+                      <li>
+                        <a href=""><i class="fa fa-heart"></i>724</a>
+                      </li>
+                    </ul>
+                  </article>
+                </div>  
+                      </div>
+            </div>
+          </div>
+        </div>
+        <!--END TABS-->
+    
+       
+</div>

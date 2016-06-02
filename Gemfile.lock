@@ -94,7 +94,11 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.7)
       tilt
+    httpclient (2.8.0)
     i18n (0.7.0)
+    impressionist (1.5.1)
+      httpclient (~> 2.2)
+      nokogiri (~> 1.5)
     jbuilder (2.5.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -167,6 +171,8 @@ GEM
       remotipart (~> 1.0)
       safe_yaml (~> 1.0)
       sass-rails (>= 4.0, < 6)
+    rails_admin_toggleable (0.6.0)
+      rails_admin
     railties (4.2.6)
       actionpack (= 4.2.6)
       activesupport (= 4.2.6)
@@ -230,6 +236,7 @@ DEPENDENCIES
   devise
   font-awesome-rails
   friendly_id (~> 5.0.0)
+  impressionist
   jbuilder (~> 2.0)
   jquery-rails
   mini_magick
@@ -237,6 +244,7 @@ DEPENDENCIES
   rails (= 4.2.6)
   rails-timeago (~> 2.0)
   rails_admin
+  rails_admin_toggleable
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

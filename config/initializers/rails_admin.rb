@@ -10,6 +10,11 @@ RailsAdmin.config do |config|
 
 
   config.model Post do 
+
+    # object_label_method do
+    #   :custom_label_method
+    # end
+
     edit do
       field :title
       field :image
@@ -26,13 +31,14 @@ RailsAdmin.config do |config|
       field :viewer
     end
 
-    # list do 
-    #    field :id
-    #    field :title
-    #    field :image
-    #    field :mytype
-    #    field :hide_post 
-    # end
+    list do 
+     items_per_page 100
+     field :id
+     field :title
+     field :image
+     field :format_post
+     field :hide_post, :toggle
+   end
   end
 
 
@@ -58,7 +64,7 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
-
+    toggle
     ## With an audit adapter, you can add:
     # history_index
     # history_show
